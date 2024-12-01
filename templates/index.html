@@ -1,7 +1,18 @@
 {% extends "base.html" %}
+
 {% block content %}
 <h1>Listado de Mascotas</h1>
+
+<!-- Barra de búsqueda -->
+<form method="GET" class="mb-3">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar por Nombre del Propietario" name="search" value="{{ request.args.get('search') }}">
+        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+    </div>
+</form>
+
 <a href="{{ url_for('add_pet') }}" class="btn btn-primary mb-3">Agregar Mascota</a>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -9,6 +20,8 @@
             <th>Nombre</th>
             <th>Especie</th>
             <th>Edad</th>
+            <th>Próxima Cita</th>
+            <th>Propietario</th> <!-- Nueva columna para el propietario -->
             <th>Acciones</th>
         </tr>
     </thead>
@@ -20,8 +33,26 @@
             <td>{{ pet.species }}</td>
             <td>{{ pet.age }}</td>
             <td>
+                {% if pet.nextAppointment %}
+                    {{ pet.nextAppointment['date'] }} - {{ pet.nextAppointment['description'] }}
+                {% else %}
+                    No agendada
+                {% endif %}
+            </td>
+            <td>
+                <!-- Información del propietario -->
+                <p><strong>{{ pet.owner.name }}</strong></p>
+            </td>
+            <td>
                 <a href="{{ url_for('update_pet', petId=pet.petId) }}" class="btn btn-warning">Editar</a>
                 <a href="{{ url_for('delete_pet', petId=pet.petId) }}" class="btn btn-danger">Eliminar</a>
+                <a href="{{ url_for('schedule_appointment', petId=pet.petId) }}" class="btn btn-info">
+                    {% if pet.nextAppointment %}
+                        Modificar Cita
+                    {% else %}
+                        Agendar Cita
+                    {% endif %}
+                </a>
             </td>
         </tr>
         {% endfor %}

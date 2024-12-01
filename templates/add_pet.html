@@ -12,7 +12,14 @@
         </div>
         <div class="mb-3">
             <label for="species" class="form-label">Especie</label>
-            <input type="text" class="form-control" id="species" name="species" required>
+            <select id="species" name="species" class="form-select" required>
+                <option value="" selected disabled>Seleccione una especie</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Ave">Ave</option>
+                <option value="Reptil">Reptil</option>
+                <option value="Otro">Otro</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="breed" class="form-label">Raza</label>
@@ -46,26 +53,37 @@
             <input type="text" class="form-control" id="ownerAddress" name="ownerAddress" required>
         </div>
 
+        <!-- Condiciones Médicas -->
+        <h3 class="mt-4">Condiciones Médicas</h3>
+        <div class="mb-3">
+            <label for="medicalConditions" class="form-label">Condiciones Médicas</label>
+            <select id="medicalConditions" name="medicalConditions[]" class="form-select" multiple size="5">
+                <option value="Vacunación">Vacunación</option>
+                <option value="Desparasitación">Desparasitación</option>
+                <option value="Limpieza Dental">Limpieza Dental</option>
+                <option value="Control General">Control General</option>
+                <option value="Cirugía">Cirugía</option>
+            </select>
+        </div>
+
         <!-- Historial médico -->
         <h3 class="mt-4">Historial Médico</h3>
         <div class="mb-3">
-            <label for="medicalHistoryDate1" class="form-label">Fecha de consulta 1</label>
+            <label for="medicalHistoryDate1" class="form-label">Fecha de consulta</label>
             <input type="date" class="form-control" id="medicalHistoryDate1" name="medicalHistoryDate1">
         </div>
         <div class="mb-3">
-            <label for="medicalHistoryCondition1" class="form-label">Condición 1</label>
+            <label for="medicalHistoryCondition1" class="form-label">Condición</label>
             <input type="text" class="form-control" id="medicalHistoryCondition1" name="medicalHistoryCondition1">
         </div>
         <div class="mb-3">
-            <label for="vetName1" class="form-label">Veterinario 1</label>
+            <label for="vetName1" class="form-label">Veterinario</label>
             <input type="text" class="form-control" id="vetName1" name="vetName1">
         </div>
         <div class="mb-3">
-            <label for="medicalNotes1" class="form-label">Notas médicas 1</label>
+            <label for="medicalNotes1" class="form-label">Notas médicas</label>
             <textarea class="form-control" id="medicalNotes1" name="medicalNotes1"></textarea>
         </div>
-
-       
 
         <!-- Próxima cita y otros datos -->
         <div class="mb-3">

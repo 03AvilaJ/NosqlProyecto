@@ -1,27 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Editar Mascota</h1>
-<form method="POST">
-    <div class="mb-3">
-        <label for="petId" class="form-label">ID de Mascota</label>
-        <input type="text" class="form-control" id="petId" name="petId" value="{{ pet.petId }}" disabled>
-    </div>
-    <div class="mb-3">
-        <label for="petName" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="petName" name="petName" value="{{ pet.petName }}" required>
-    </div>
-    <div class="mb-3">
-        <label for="species" class="form-label">Especie</label>
-        <input type="text" class="form-control" id="species" name="species" value="{{ pet.species }}" required>
-    </div>
-    <div class="mb-3">
-        <label for="age" class="form-label">Edad</label>
-        <input type="number" class="form-control" id="age" name="age" value="{{ pet.age }}" required>
-    </div>
-    <div class="mb-3">
-        <label for="weight" class="form-label">Peso</label>
-        <input type="text" class="form-control" id="weight" name="weight" value="{{ pet.weight }}" required>
-    </div>
-    <button type="submit" class="btn btn-success">Actualizar</button>
-</form>
+<h1 class="text-center my-4">Editar Mascota</h1>
+
+<div class="container form-container">
+    <form method="POST">
+        <!-- Datos básicos de la mascota -->
+        <div class="mb-3">
+            <label for="petName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="petName" name="petName" value="{{ pet['petName'] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="species" class="form-label">Especie</label>
+            <select id="species" name="species" class="form-select" required>
+                <option value="Perro" {% if pet['species'] == 'Perro' %}selected{% endif %}>Perro</option>
+                <option value="Gato" {% if pet['species'] == 'Gato' %}selected{% endif %}>Gato</option>
+                <option value="Ave" {% if pet['species'] == 'Ave' %}selected{% endif %}>Ave</option>
+                <option value="Reptil" {% if pet['species'] == 'Reptil' %}selected{% endif %}>Reptil</option>
+                <option value="Otro" {% if pet['species'] == 'Otro' %}selected{% endif %}>Otro</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="age" name="age" value="{{ pet['age'] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="weight" class="form-label">Peso</label>
+            <input type="text" class="form-control" id="weight" name="weight" value="{{ pet['weight'] }}" required>
+        </div>
+
+        <!-- Botón de envío -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

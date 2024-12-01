@@ -94,6 +94,34 @@
         .form-label, .card-text, .card-title, .btn, h1, h3 {
             color: #000000 !important; /* Aseguramos que todo el texto sea negro */
         }
+
+        /* Select múltiple estilizado */
+        select[multiple] {
+            cursor: pointer; /* Personalizar cursor */
+            background-color: #f9f9f9;
+            border: 1px solid #ced4da;
+            height: auto; /* Permitir que crezca con las opciones */
+        }
+
+        select[multiple] option:hover {
+            background-color: #e9ecef; /* Fondo más claro al pasar el mouse */
+            color: #007bff; /* Texto azul */
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .form-container, .card {
+                padding: 15px; /* Reducir padding en pantallas pequeñas */
+            }
+
+            h1, h3 {
+                font-size: 1.5rem; /* Reducir tamaño de los títulos */
+            }
+
+            .btn {
+                font-size: 14px; /* Botones más pequeños */
+            }
+        }
     </style>
 </head>
 <body>
