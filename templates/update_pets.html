@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Editar Mascota</h1>
+<form method="POST">
+    <div class="mb-3">
+        <label for="petId" class="form-label">ID de Mascota</label>
+        <input type="text" class="form-control" id="petId" name="petId" value="{{ pet.petId }}" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="petName" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="petName" name="petName" value="{{ pet.petName }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="species" class="form-label">Especie</label>
+        <input type="text" class="form-control" id="species" name="species" value="{{ pet.species }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Edad</label>
+        <input type="number" class="form-control" id="age" name="age" value="{{ pet.age }}" required>
+    </div>
+    <div class="mb-3">
+        <label for="weight" class="form-label">Peso</label>
+        <input type="text" class="form-control" id="weight" name="weight" value="{{ pet.weight }}" required>
+    </div>
+    <button type="submit" class="btn btn-success">Actualizar</button>
+</form>
+{% endblock %}

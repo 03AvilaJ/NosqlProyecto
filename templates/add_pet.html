@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center my-4">Agregar Mascota</h1>
+
+<!-- Contenedor principal -->
+<div class="container">
+    <form method="POST">
+        <!-- Datos básicos de la mascota -->
+        <div class="mb-3">
+            <label for="petName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="petName" name="petName" required>
+        </div>
+        <div class="mb-3">
+            <label for="species" class="form-label">Especie</label>
+            <input type="text" class="form-control" id="species" name="species" required>
+        </div>
+        <div class="mb-3">
+            <label for="breed" class="form-label">Raza</label>
+            <input type="text" class="form-control" id="breed" name="breed" required>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="age" name="age" required>
+        </div>
+        <div class="mb-3">
+            <label for="weight" class="form-label">Peso</label>
+            <input type="text" class="form-control" id="weight" name="weight" required>
+        </div>
+
+        <!-- Datos del propietario -->
+        <h3 class="mt-4">Datos del Propietario</h3>
+        <div class="mb-3">
+            <label for="ownerName" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="ownerName" name="ownerName" required>
+        </div>
+        <div class="mb-3">
+            <label for="ownerPhone" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="ownerPhone" name="ownerPhone" required>
+        </div>
+        <div class="mb-3">
+            <label for="ownerEmail" class="form-label">Correo</label>
+            <input type="email" class="form-control" id="ownerEmail" name="ownerEmail" required>
+        </div>
+        <div class="mb-3">
+            <label for="ownerAddress" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="ownerAddress" name="ownerAddress" required>
+        </div>
+
+        <!-- Historial médico -->
+        <h3 class="mt-4">Historial Médico</h3>
+        <div class="mb-3">
+            <label for="medicalHistoryDate1" class="form-label">Fecha de consulta 1</label>
+            <input type="date" class="form-control" id="medicalHistoryDate1" name="medicalHistoryDate1">
+        </div>
+        <div class="mb-3">
+            <label for="medicalHistoryCondition1" class="form-label">Condición 1</label>
+            <input type="text" class="form-control" id="medicalHistoryCondition1" name="medicalHistoryCondition1">
+        </div>
+        <div class="mb-3">
+            <label for="vetName1" class="form-label">Veterinario 1</label>
+            <input type="text" class="form-control" id="vetName1" name="vetName1">
+        </div>
+        <div class="mb-3">
+            <label for="medicalNotes1" class="form-label">Notas médicas 1</label>
+            <textarea class="form-control" id="medicalNotes1" name="medicalNotes1"></textarea>
+        </div>
+
+       
+
+        <!-- Próxima cita y otros datos -->
+        <div class="mb-3">
+            <label for="nextAppointment" class="form-label">Próxima Cita</label>
+            <input type="date" class="form-control" id="nextAppointment" name="nextAppointment">
+        </div>
+        <div class="mb-3">
+            <label for="favoriteToy" class="form-label">Juguete Favorito</label>
+            <input type="text" class="form-control" id="favoriteToy" name="favoriteToy">
+        </div>
+        <div class="mb-3">
+            <label for="favoriteTreat" class="form-label">Goloseima Favorita</label>
+            <input type="text" class="form-control" id="favoriteTreat" name="favoriteTreat">
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Listado de Mascotas</h1>
+<a href="{{ url_for('add_pet') }}" class="btn btn-primary mb-3">Agregar Mascota</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Especie</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr>
+            <td>{{ pet.petId }}</td>
+            <td>{{ pet.petName }}</td>
+            <td>{{ pet.species }}</td>
+            <td>{{ pet.age }}</td>
+            <td>
+                <a href="{{ url_for('update_pet', petId=pet.petId) }}" class="btn btn-warning">Editar</a>
+                <a href="{{ url_for('delete_pet', petId=pet.petId) }}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

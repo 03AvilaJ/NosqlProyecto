@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Establecer la imagen de fondo y aplicar opacidad con pseudo-elemento */
+        body {
+            position: relative;
+            font-family: 'Arial', sans-serif;
+            color: #000000; /* Texto negro */
+        }
+
+        /* Capa de fondo con imagen y opacidad */
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://previews.123rf.com/images/bybochka/bybochka1510/bybochka151000147/46364128-modelo-incons%C3%BAtil-de-veterinaria-cl%C3%ADnica-veterinaria-dise%C3%B1o-plano-fondo-azul-ilustraci%C3%B3n.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5; /* Ajusta la opacidad de la imagen de fondo */
+            z-index: -1; /* Coloca la imagen detrás del contenido */
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Fondo y sombra para los formularios y tarjetas */
+        .form-container, .card {
+            background-color: rgba(255, 255, 255, 0.85); /* Fondo blanco con opacidad */
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            border-radius: 5px;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+        }
+
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .card-img-top {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        /* Mejorar los títulos */
+        h1, h3 {
+            color: #007bff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos para los botones */
+        .btn {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        /* Efectos de hover en los botones */
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Textos en negro para formularios y demás */
+        .form-label, .card-text, .card-title, .btn, h1, h3 {
+            color: #000000 !important; /* Aseguramos que todo el texto sea negro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-success">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

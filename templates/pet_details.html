@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Detalles de la Mascota</h1>
+<table class="table">
+    <tr>
+        <th>ID de Mascota</th>
+        <td>{{ pet.petId }}</td>
+    </tr>
+    <tr>
+        <th>Nombre</th>
+        <td>{{ pet.petName }}</td>
+    </tr>
+    <tr>
+        <th>Especie</th>
+        <td>{{ pet.species }}</td>
+    </tr>
+    <tr>
+        <th>Raza</th>
+        <td>{{ pet.breed }}</td>
+    </tr>
+    <tr>
+        <th>Edad</th>
+        <td>{{ pet.age }}</td>
+    </tr>
+    <tr>
+        <th>Peso</th>
+        <td>{{ pet.weight }}</td>
+    </tr>
+    <tr>
+        <th>Nombre del Propietario</th>
+        <td>{{ pet.owner.name }}</td>
+    </tr>
+    <tr>
+        <th>Teléfono del Propietario</th>
+        <td>{{ pet.owner.phone }}</td>
+    </tr>
+    <tr>
+        <th>Correo del Propietario</th>
+        <td>{{ pet.owner.email }}</td>
+    </tr>
+    <tr>
+        <th>Dirección del Propietario</th>
+        <td>{{ pet.owner.address }}</td>
+    </tr>
+    <tr>
+        <th>Próxima Cita</th>
+        <td>{{ pet.nextAppointment }}</td>
+    </tr>
+    <tr>
+        <th>Juguete Favorito</th>
+        <td>{{ pet.favoriteToy }}</td>
+    </tr>
+    <tr>
+        <th>Goloseima Favorita</th>
+        <td>{{ pet.favoriteTreat }}</td>
+    </tr>
+</table>
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary">Volver al Listado</a>
+{% endblock %}
